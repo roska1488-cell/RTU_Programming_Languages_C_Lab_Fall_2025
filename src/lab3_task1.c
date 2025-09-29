@@ -1,26 +1,3 @@
-/*
- * Lab 3, Task 1
- * Student Name, Student ID
- *
- * Implement array algorithms:
- *   - find minimum value
- *   - find maximum value
- *   - calculate sum
- *   - calculate average
- *
- * Rules:
- *   - Write separate functions for each operation.
- *   - Work with int arrays.
- *   - Average should return a float.
- *
- * Example:
- *   int arr[] = {1, 2, 3, 4, 5};
- *   min = array_min(arr, 5); // 1
- *   max = array_max(arr, 5); // 5
- *   sum = array_sum(arr, 5); // 15
- *   avg = array_avg(arr, 5); // 3.0
- */
-
 #include <stdio.h>
 #include <limits.h>
 
@@ -44,27 +21,34 @@ int main(void) {
 
 // Implement functions below
 int array_min(int arr[], int size) {
-    // TODO: return smallest element
-    int my_min = INT_MAX; //set to max infinity
-    for (int i=0;i<size;i++) {
+    int my_min = INT_MAX; // set to max possible integer value
+    for (int i = 0; i < size; i++) {
         if (my_min > arr[i]) {
             my_min = arr[i];
         }
     }
-    return my_min; // placeholder
+    return my_min; // smallest element
 }
 
 int array_max(int arr[], int size) {
-    // TODO: return largest element
-    return 0; // placeholder
+    int my_max = INT_MIN; // set to min possible integer value
+    for (int i = 0; i < size; i++) {
+        if (my_max < arr[i]) {
+            my_max = arr[i];
+        }
+    }
+    return my_max; // largest element
 }
 
 int array_sum(int arr[], int size) {
-    // TODO: return sum of elements
-    return 0; // placeholder
+    int sum = 0; // initialize sum to 0
+    for (int i = 0; i < size; i++) {
+        sum += arr[i]; // add each element to the sum
+    }
+    return sum; // return the sum of elements
 }
 
 float array_avg(int arr[], int size) {
-    // TODO: return average as float
-    return 0.0f; // placeholder
+    int sum = array_sum(arr, size); // reuse array_sum function to get sum
+    return (float)sum / size; // return average as float
 }
